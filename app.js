@@ -7,24 +7,29 @@ console.log("number of buttons: " + numNodes.length);
 console.log("value of first button: " + numNodes[0].innerText);
 
 
-nums.addEventListener('click', makeNums);
-//let numArray = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero"];
-let numArray = ["one", "two"];
-let one2 = document.getElementById('one').innerText = "1"
-//could have a function for each number
+nums.addEventListener('click', function createNum(event){
+    let userNumber = event.userNumber.target.innerText;    
+})
 
+//nums.addEventListener('click', test);
+//let numArray = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero"];
+
+
+let numArray = [1, 2];
 function makeNums(){
     for (let i = 0; i < numNodes.length; i++){
-        if (numNodes[i].innerText == 1){
-            let calcNum = numNodes[i].innerText;
-            console.log("output from MakeNums funct: " + calcNum);   
-            return () => calcNum;
-        }else{
-            console.log(false)
+        for (let j = 0; j < numArray.length; j++){
+            if (numNodes[i].innerText == numArray[j]){
+                let calcNum = numNodes[j].innerText;
+                console.log("output from MakeNums funct: " + calcNum);   
+                return () => calcNum;
+            }else{
+                console.log("no num")
+            }
         }
+        return false;
     }
 }
-let operand = makeNums();
 
 function addition(){
 
