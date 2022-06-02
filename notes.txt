@@ -1,0 +1,5 @@
+Desiderata
+
+1. a function that can provide the event listener for a button once its pressed so as to avoid making a bunch
+2. a function that accepts n number of arguments and performs the operation (ex: two params, but only gets one => will perform operation with one param)
+3. 
