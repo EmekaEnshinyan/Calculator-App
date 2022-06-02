@@ -1,55 +1,28 @@
 //NEXT: find a way to allow for two button presses before the arithmetic operation goes through
     //research Await and Promises pg 194
-
+let x;
+let y;
 const nums = document.getElementById("numbers");
 let numNodes = nums.getElementsByTagName("button");
 console.log("number of buttons: " + numNodes.length);
 console.log("value of first button: " + numNodes[0].innerText);
 
+//bind value of whichever number button pressed
+let numBtnOne = nums.addEventListener('click', function callNum(event){
+    console.log(event.target.innerText);
+ 
+    //return event.target.innerText;
+    
+});
+console.log(numBtnOne)
 
-nums.addEventListener('click', function createNum(event){
-    let userNumber = event.userNumber.target.innerText;    
-})
+const addBtn = document.getElementById("addition").addEventListener('click', addition);
 
-//nums.addEventListener('click', test);
+
 //let numArray = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero"];
+//let numArray = [1, 2];
 
+function addition(event){
+    event.preventDefault();
 
-let numArray = [1, 2];
-function makeNums(){
-    for (let i = 0; i < numNodes.length; i++){
-        for (let j = 0; j < numArray.length; j++){
-            if (numNodes[i].innerText == numArray[j]){
-                let calcNum = numNodes[j].innerText;
-                console.log("output from MakeNums funct: " + calcNum);   
-                return () => calcNum;
-            }else{
-                console.log("no num")
-            }
-        }
-        return false;
-    }
-}
-
-function addition(){
-
-}
-
-
-function inputNum(){
-    // for ( var i; i < arr.length; i++){
-
-    // }
-    switch (one2){
-        case "1": 
-            console.log(1);
-            break;
-        case "2":
-            console.log(2);
-            break;
-    }
-
-}
-function  add(operandOne, operandTwo){
-    console.log(operandOne + operandTwo);
 }
