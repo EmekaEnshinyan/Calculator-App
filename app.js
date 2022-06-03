@@ -1,5 +1,7 @@
-//NEXT: find a way to allow for two button presses before the arithmetic operation goes through
-    //research Await and Promises pg 194
+/*NEXT: need a way to have the first number stored separately and then allow the function to call for another number. maybe turn btnValue to const
+and make another one
+    another idea is to use a hashmap, where each number will be added to the map*/
+/*CONFUSIONS: e.preventDefault(); |*/
 let nums = document.getElementById("numbers");
 let numNodes = nums.getElementsByTagName("button");
 console.log("number of buttons: " + numNodes.length);
@@ -14,20 +16,35 @@ let btnValue;
 
 /*be able to log the value of button pressed*/
 //output operand
+let operandOne;
 function getOperands(value){
     console.log(value); 
-    return value;
+    operandOne = value;
+    return operandOne;
 }
 
 /*find a way to place value(s) of button presses into an addition function*/
 let addBtn = document.getElementById("addition").addEventListener('click', addition);
-function addition(operand){
-    operand.preventDefault();
-    console.log(btnValue)
-    result.append(btnValue)
+let result = document.getElementById("result");
+
+function addition(operandTwo){
+    operandTwo = Number(btnValue)
+    console.log(operandTwo);
+    btnValue = 0;
+    return operandTwo;
 }
 
-let result = document.getElementById("result");
+let equalsBtn = document.getElementById("equals").addEventListener('click', equals);
+
+function equals(){
+
+    result.append(`result: ${addition()}`);
+}
+
+
+
+
+
 
 
 
