@@ -6,15 +6,13 @@ console.log("number of buttons: " + numNodes.length);
 console.log("value of first button: " + numNodes[0].innerText);
 
 //bind value of whichever number button pressed
-let result;
+let btnValue;
     nums.addEventListener('click', function(event){
         event.preventDefault;
-        result = getOperands(event.target.innerText); 
+        btnValue = getOperands(event.target.innerText); 
     });
 
 /*be able to log the value of button pressed*/
-
-
 //output operand
 function getOperands(value){
     console.log(value); 
@@ -22,14 +20,15 @@ function getOperands(value){
 }
 
 /*find a way to place value(s) of button presses into an addition function*/
+let addBtn = document.getElementById("addition").addEventListener('click', addition);
 function addition(operand){
     operand.preventDefault();
-    console.log(result)
-    
-
+    console.log(btnValue)
+    result.append(btnValue)
 }
 
-const addBtn = document.getElementById("addition").addEventListener('click', addition);
+let result = document.getElementById("result");
+
 
 
 
