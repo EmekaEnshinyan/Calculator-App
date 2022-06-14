@@ -1,72 +1,203 @@
-/*NEXT: need a way to have the first number stored separately and then allow the function to call for 
-    another number. maybe turn btnValue to const and make another one
-    another idea is to use a hashmap, where each number will be added to the map*/
-/*CONFUSIONS: e.preventDefault(); |*/
+//abstract operand output
+let operand;
+function getInputs(value) {
+  operand = Number(value);
+  console.log(typeof value);
+  return operand;
+}
+
 let nums = document.getElementById("numbers");
-let nums2 = document.getElementsByClassName(".numbers");
-for (var i = 0; i < nums2.length; i++){
-    {
-        nums2[i].addEventListener('click', function(){
-            console.log(index + " was clicked");
-        })
-    };
-}
-let numNodes = nums.getElementsByTagName("button");
-console.log("number of buttons: " + numNodes.length);
-console.log("value of first button: " + numNodes[0].innerText);
+//global vars for all numbers handler
+let inputs = [];
+let sequence = [];
+let counter = 0;
+let btnValue;
+let convertToNum;
+//bind operand to number pressed and add to array
+nums.addEventListener("click", function (event) {
+  btnValue = getInputs(event.target.innerText);
+  sequence.push(btnValue);
+  //join array elements and regex out the commas; convert to a number
+  let concatStr = sequence.join();
+  let removeCommas = concatStr.replace(/,/g, "");
+  convertToNum = Number(removeCommas);
+  inputs.push(convertToNum);
+  console.log("input: ")
+  console.log(inputs);
+  makeMaps();
+  console.log("input")
+  console.log(singleDigit)
+  console.log(doubleDigit)
+});
 
-function handleClick(e){
-    /*addEventL('click', functOne)
-        ...     ...      functTwo)*/
 
-}
-//bind value of whichever number button pressed
-// let btnValue;
-//     nums.addEventListener('click', function(event) {
-//         event.preventDefault;
-//         btnValue = getOperandOne(event.target.innerText); 
-//     });
 
-/*be able to log the value of button pressed*/
-//output operand
-let operandOne = "";
-function getOperandOne(value){
-    console.log(value); 
-    operandOne = value;
-    return operandOne;
+let equalsMap = new Map();
+let key = 0;
+let singleDigit = new Map();
+let doubleDigit = new Map();
+let keyOne = 0;
+let keyTwo = 0;
+function makeMaps() {
+  if (singleDigit.get(0) < 10){
+    singleDigit.set(keyOne, convertToNum);
+    console.log(singleDigit)
+  }else{
+    doubleDigit.set(keyTwo, convertToNum);
+    console.log(doubleDigit)
+  }
 }
-/*find a way to place value(s) of button presses into an addition function*/
-let addBtn = document.getElementById("addition").addEventListener('click', addition);
+
+let equalsBtn = document
+  .getElementById("equals")
+  .addEventListener("click", equals);
 let result = document.getElementById("result");
+//display the value at last equalsMap index
+function equals(event) {
+    if (plus == 1){
+        result.innerText = `result: ${add()}`;
+    }
+    if (minus == 1){
+        result.innerText = `result: ${subtract()}`;
+    }
+    if (times == 1){
+        result.innerText = `result: ${multiply()}`;
+    }
+    // if (quotient == 1){
+    //     result.innerText = `result: ${divide()}`;
+    // }
 
+  
+}
 
-function addition(){
-   
-    operandOne = Number(btnValue)
+let total = 0;
+let sumArray = [];
+let eCounter = 0;
+let fCounter = 0;
+
+let addBtn = document.getElementById("addition").addEventListener("click", add);
+//counter for how many times add() callled
+let plus = 0;
+//add
+//let sum = 0;
+function add() {
+  console.log("add")
+   sequence = [];
+   inputs = [];
+   if (minus > 0){
+    minus = 0;
+    subtract();
+    }
+    if (times > 0){
+    times = 0;
+    multiply();
+    }
+    let sum = 0;
+    if (equalsMap.size > 0){
+    sum = equalsMap.get(equalsMap.size - 1) + doubleDigit.get(0);
+    console.log("sum: " + sum)
+    plus++
+    console.log("plus stack="+plus)
+    equalsMap.set(key, sum);
+    key++;
+    console.log("equalsMap:")
+    console.log(equalsMap)
+    return sum;
+  }else{
+    sum = doubleDigit.get(0);
+    plus++
+    console.log("plus stack="+plus);
+    equalsMap.set(key, sum);
+    key++;
+    console.log("equalsMap:")
+    console.log(equalsMap)
+    return sum;
     
-   
-    return operandOne;
+  }
 }
 
-let equalsBtn = document.getElementById("equals").addEventListener('click', equals);
-
-function equals(){
-
-    result.append(`result: ${addition()}`);
+let subtractBtn = document
+  .getElementById("subtraction")
+  .addEventListener("click", subtract);
+//let difference = 0;
+let minus = 0;
+function subtract() {
+  console.log("subtract");
+  sequence = [];
+  inputs = [];
+    if (plus > 0){
+        plus = 0;
+        add();
+    }
+    if (times > 0){
+        times = 0;
+        multiply();
+    }
+    let difference = 0;
+    if (equalsMap.size > 0){
+    difference = equalsMap.get(equalsMap.size - 1) - doubleDigit.get(0);
+    console.log("difference: " + difference);
+    minus++;
+    console.log("minus stack=" + minus)
+    equalsMap.set(key, difference);
+    key++;
+    console.log("equalsMap:");
+    console.log(equalsMap);
+    return difference;
+  }else{
+    difference = doubleDigit.get(0);
+    minus++;
+    console.log("minus stack=" + minus)
+    equalsMap.set(key, difference);
+    key++;
+    console.log("equalsMap:");
+    console.log(equalsMap);
+    return difference; 
+    
+}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*extra*/
-//let numArray = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "zero"];
-//let numArray = [1, 2];
+let multiplyBtn = document.getElementById("multiplication").addEventListener('click', multiply);
+let times = 0;
+function multiply(){
+    console.log("multiply")
+    sequence = [];
+    inputs = [];
+    if (plus > 0){
+        plus = 0;
+        add();
+    }
+    if (minus > 0){
+        minus = 0;
+        subtract();
+    }
+    let product = 0;
+     if (equalsMap.size > 0){
+     
+     product = equalsMap.get(equalsMap.size - 1) * doubleDigit.get(0);
+     console.log("product: " + product)
+     times++
+     equalsMap.set(key, product);
+     key++;
+     console.log("equalsMap:")
+     console.log(equalsMap)
+     return product;
+   }else{
+     product = doubleDigit.get(0);
+     times++
+     equalsMap.set(key, product);
+     key++;
+     console.log("equalsMap:")
+     console.log(equalsMap)
+     return product;
+}
+}
+//MC
+// let clear = document.getElementById("memory-clear");
+// clear.addEventListener("click", function (event) {
+//   event = result.innerText = "";
+//   finalValue = "";
+//   sumArray = [];
+//   arrayProduct = [];
+//   arrayDivide = [];
+// });
