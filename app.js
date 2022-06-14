@@ -63,9 +63,9 @@ function equals(event) {
     if (times == 1){
         result.innerText = `result: ${multiply()}`;
     }
-    // if (quotient == 1){
-    //     result.innerText = `result: ${divide()}`;
-    // }
+    if (times > 0){
+        result.innerText = `result: ${divide()}`;
+    }
 
   
 }
@@ -84,14 +84,18 @@ function add() {
   console.log("add")
    sequence = [];
    inputs = [];
-   if (minus > 0){
-    minus = 0;
-    subtract();
-    }
-    if (times > 0){
-    times = 0;
-    multiply();
-    }
+  if (minus > 0){
+   minus = 0;
+   subtract();
+   }
+   if (times > 0){
+   times = 0;
+   multiply();
+   }
+  if (div > 0){
+    div = 0;
+    divide();
+  }
     let sum = 0;
     if (equalsMap.size > 0){
     sum = equalsMap.get(equalsMap.size - 1) + doubleDigit.get(0);
@@ -125,14 +129,18 @@ function subtract() {
   console.log("subtract");
   sequence = [];
   inputs = [];
-    if (plus > 0){
-        plus = 0;
-        add();
-    }
-    if (times > 0){
-        times = 0;
-        multiply();
-    }
+  if (add > 0){
+    add = 0;
+    add();
+  }
+   if (times > 0){
+   times = 0;
+   multiply();
+   }
+  if (div > 0){
+    div = 0;
+    divide();
+  }
     let difference = 0;
     if (equalsMap.size > 0){
     difference = equalsMap.get(equalsMap.size - 1) - doubleDigit.get(0);
@@ -163,13 +171,18 @@ function multiply(){
     console.log("multiply")
     sequence = [];
     inputs = [];
-    if (plus > 0){
-        plus = 0;
-        add();
+    if (add > 0){
+      add = 0;
+      add();
     }
     if (minus > 0){
-        minus = 0;
-        subtract();
+     minus = 0;
+     subtract();
+     }
+     }
+    if (div > 0){
+      div = 0;
+      divide();
     }
     let product = 0;
      if (equalsMap.size > 0){
@@ -191,6 +204,48 @@ function multiply(){
      console.log(equalsMap)
      return product;
 }
+
+let div = 0;
+function divide(){
+  console.log("divide");
+
+  sequence = [];
+  inputs = [];
+  if (add > 0){
+    add = 0;
+    add();
+  }
+  if (minus > 0){
+   minus = 0;
+   subtract();
+   }
+   if (times > 0){
+   times = 0;
+   multiply();
+   }
+
+   let sum = 0;
+   if (equalsMap.size > 0){
+   sum = equalsMap.get(equalsMap.size - 1) + doubleDigit.get(0);
+   console.log("sum: " + sum)
+   plus++
+   console.log("plus stack="+plus)
+   equalsMap.set(key, sum);
+   key++;
+   console.log("equalsMap:")
+   console.log(equalsMap)
+   return sum;
+ }else{
+   sum = doubleDigit.get(0);
+   plus++
+   console.log("plus stack="+plus);
+   equalsMap.set(key, sum);
+   key++;
+   console.log("equalsMap:")
+   console.log(equalsMap)
+   return sum;
+   
+ }
 }
 //MC
 // let clear = document.getElementById("memory-clear");
