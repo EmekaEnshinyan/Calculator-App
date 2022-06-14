@@ -54,13 +54,13 @@ let equalsBtn = document
 let result = document.getElementById("result");
 //display the value at last equalsMap index
 function equals(event) {
-    if (plus == 1){
+    if (plus > 0){
         result.innerText = `result: ${add()}`;
     }
-    if (minus == 1){
+    if (minus > 0){
         result.innerText = `result: ${subtract()}`;
     }
-    if (times == 1){
+    if (times > 0){
         result.innerText = `result: ${multiply()}`;
     }
     if (div > 0){
@@ -114,7 +114,6 @@ function add() {
     console.log("equalsMap:")
     console.log(equalsMap)
     return sum;
-    
   }
 }
 
