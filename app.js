@@ -63,7 +63,7 @@ function equals(event) {
     if (times == 1){
         result.innerText = `result: ${multiply()}`;
     }
-    if (times > 0){
+    if (div > 0){
         result.innerText = `result: ${divide()}`;
     }
 
@@ -78,8 +78,6 @@ let fCounter = 0;
 let addBtn = document.getElementById("addition").addEventListener("click", add);
 //counter for how many times add() callled
 let plus = 0;
-//add
-//let sum = 0;
 function add() {
   console.log("add")
    sequence = [];
@@ -179,36 +177,37 @@ function multiply(){
      minus = 0;
      subtract();
      }
-     }
     if (div > 0){
       div = 0;
       divide();
     }
     let product = 0;
      if (equalsMap.size > 0){
-     
      product = equalsMap.get(equalsMap.size - 1) * doubleDigit.get(0);
-     console.log("product: " + product)
-     times++
+     console.log("product: " + product);
+     times++;
+     console.log("times stack="+times)
      equalsMap.set(key, product);
      key++;
-     console.log("equalsMap:")
-     console.log(equalsMap)
+     console.log("equalsMap:");
+     console.log(equalsMap);
      return product;
    }else{
      product = doubleDigit.get(0);
      times++
+     console.log("times stack="+times)
      equalsMap.set(key, product);
      key++;
      console.log("equalsMap:")
      console.log(equalsMap)
      return product;
+  }
 }
 
+let divideBtn = document.getElementById("division").addEventListener('click', divide);
 let div = 0;
 function divide(){
-  console.log("divide");
-
+  console.log("multiply")
   sequence = [];
   inputs = [];
   if (add > 0){
@@ -219,40 +218,51 @@ function divide(){
    minus = 0;
    subtract();
    }
-   if (times > 0){
-   times = 0;
-   multiply();
-   }
-
-   let sum = 0;
+  if (times > 0){
+    times = 0;
+    multiply();
+  }
+  let quotient = 0;
    if (equalsMap.size > 0){
-   sum = equalsMap.get(equalsMap.size - 1) + doubleDigit.get(0);
-   console.log("sum: " + sum)
-   plus++
-   console.log("plus stack="+plus)
-   equalsMap.set(key, sum);
+   quotient = equalsMap.get(equalsMap.size - 1) / doubleDigit.get(0);
+   console.log("quotient: " + quotient);
+   div++;
+   console.log("div stack="+div)
+   equalsMap.set(key, quotient);
    key++;
-   console.log("equalsMap:")
-   console.log(equalsMap)
-   return sum;
+   console.log("equalsMap:");
+   console.log(equalsMap);
+   return quotient;
  }else{
-   sum = doubleDigit.get(0);
-   plus++
-   console.log("plus stack="+plus);
-   equalsMap.set(key, sum);
+   quotient = doubleDigit.get(0);
+   div++
+   console.log("div stack="+div)
+   equalsMap.set(key, quotient);
    key++;
    console.log("equalsMap:")
    console.log(equalsMap)
-   return sum;
-   
- }
+   return quotient;
 }
+  }
+
 //MC
-// let clear = document.getElementById("memory-clear");
-// clear.addEventListener("click", function (event) {
-//   event = result.innerText = "";
-//   finalValue = "";
-//   sumArray = [];
-//   arrayProduct = [];
-//   arrayDivide = [];
-// });
+let clear = document.getElementById("memory-clear")
+clear.addEventListener('click', function (event) {
+  event = result.innerText = "";
+  event = equalsMap.clear();
+  event = doubleDigit.clear();
+  inputs = [];
+  sequence = [];
+  key = 0;
+  plus = 0;
+  minus = 0;
+  times = 0;
+  div = 0;
+})
+//MR
+let recall = document.getElementById("memory-recall")
+recall.addEventListener('click', function (event){
+  doubleDigit.set(0, equalsMap.get(equalsMap.size - 1));
+  console.log(doubleDigit);
+})
+  
