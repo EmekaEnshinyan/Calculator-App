@@ -10,12 +10,10 @@ let nums = document.getElementById("numbers");
 //global vars for all numbers handler
 let inputs = [];
 let sequence = [];
-let counter = 0;
-let btnValue;
 let convertToNum;
 //bind operand to number pressed and add to array
 nums.addEventListener("click", function (event) {
-  btnValue = getInputs(event.target.innerText);
+  let btnValue = getInputs(event.target.innerText);
   sequence.push(btnValue);
   //join array elements and regex out the commas; convert to a number
   let concatStr = sequence.join();
@@ -55,25 +53,48 @@ let result = document.getElementById("result");
 //display the value at last equalsMap index
 function equals(event) {
     if (plus > 0){
-        result.innerText = `result: ${add()}`;
+        plus = 0;
+        let total = equalsMap.get(equalsMap.size - 1) + doubleDigit.get(0);
+        result.innerText = `result: ${total}`;
+        equalsMap.set(key, total)
+        key++
+        console.log("total in map")
+        console.log(equalsMap)
+
     }
     if (minus > 0){
-        result.innerText = `result: ${subtract()}`;
-    }
+        minus = 0;
+        let total = equalsMap.get(equalsMap.size - 1) - doubleDigit.get(0);
+        result.innerText = `result: ${total}`;
+        equalsMap.set(key, total)
+        key++    
+        console.log("total in map")
+        console.log(equalsMap)
+        doubleDigit.clear();
+        inputs = [];
+        sequence = [];
+        return total;
+      }
     if (times > 0){
-        result.innerText = `result: ${multiply()}`;
+        times = 0;
+        let total = equalsMap.get(equalsMap.size - 1) * doubleDigit.get(0);
+        result.innerText = `result: ${total}`;
+        equalsMap.set(key, total)
+        key++
+        console.log("total in map")
+        console.log(equalsMap)
     }
     if (div > 0){
-        result.innerText = `result: ${divide()}`;
+        div = 0;
+        let total = equalsMap.get(equalsMap.size - 1) / doubleDigit.get(0);
+        result.innerText = `result: ${total}`;
+        equalsMap.set(key, total)
+        key++
+        console.log("total in map")
+        console.log(equalsMap)
     }
-
-  
 }
 
-let total = 0;
-let sumArray = [];
-let eCounter = 0;
-let fCounter = 0;
 
 let addBtn = document.getElementById("addition").addEventListener("click", add);
 //counter for how many times add() callled
@@ -95,7 +116,7 @@ function add() {
     divide();
   }
     let sum = 0;
-    if (equalsMap.size > 0){
+    if (equalsMap.size > 0 && doubleDigit.size < 1){
     sum = equalsMap.get(equalsMap.size - 1) + doubleDigit.get(0);
     console.log("sum: " + sum)
     plus++
@@ -139,7 +160,7 @@ function subtract() {
     divide();
   }
     let difference = 0;
-    if (equalsMap.size > 0){
+    if (equalsMap.size > 0 && doubleDigit.size < 1){
     difference = equalsMap.get(equalsMap.size - 1) - doubleDigit.get(0);
     console.log("difference: " + difference);
     minus++;
@@ -181,7 +202,7 @@ function multiply(){
       divide();
     }
     let product = 0;
-     if (equalsMap.size > 0){
+     if (equalsMap.size > 0 && doubleDigit.size < 1){
      product = equalsMap.get(equalsMap.size - 1) * doubleDigit.get(0);
      console.log("product: " + product);
      times++;
@@ -222,7 +243,7 @@ function divide(){
     multiply();
   }
   let quotient = 0;
-   if (equalsMap.size > 0){
+   if (equalsMap.size > 0 && doubleDigit.size < 1){
    quotient = equalsMap.get(equalsMap.size - 1) / doubleDigit.get(0);
    console.log("quotient: " + quotient);
    div++;
@@ -261,7 +282,16 @@ clear.addEventListener('click', function (event) {
 //MR
 let recall = document.getElementById("memory-recall")
 recall.addEventListener('click', function (event){
-  doubleDigit.set(0, equalsMap.get(equalsMap.size - 1));
-  console.log(doubleDigit);
+    event = equalsMap.get(equalsMap.size - 1);
+    equalsMap.delete(equalsMap.size - 1);
+    key--;
+    console.log("recallValue: ")
+    console.log(event)
+    console.log(equalsMap)
+    
+    
+    
+  
+  
 })
   
