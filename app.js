@@ -32,18 +32,22 @@ nums.addEventListener("click", function (event) {
 
 let equalsMap = new Map();
 let key = 0;
+let operandMap = new Map();
+let operandKey = 0;
 let singleDigit = new Map();
 let doubleDigit = new Map();
-let keyOne = 0;
-let keyTwo = 0;
 function makeMaps() {
   if (singleDigit.get(0) < 10){
-    singleDigit.set(keyOne, convertToNum);
-    console.log(singleDigit)
+    let keySingle = 0;    
+    singleDigit.set(keySingle, convertToNum);
+    console.log(singleDigit);
   }else{
-    doubleDigit.set(keyTwo, convertToNum);
-    console.log(doubleDigit)
+    let keyDouble = 0;
+    doubleDigit.set(keyDouble, convertToNum);
+    console.log(doubleDigit);
   }
+  
+
 }
 
 let equalsBtn = document
@@ -51,15 +55,21 @@ let equalsBtn = document
   .addEventListener("click", equals);
 let result = document.getElementById("result");
 //display the value at last equalsMap index
+let total = 0;
 function equals(event) {
     if (plus > 0){
         plus = 0;
-        let total = equalsMap.get(equalsMap.size - 1) + doubleDigit.get(0);
+        total = equalsMap.get(equalsMap.size - 1) + doubleDigit.get(0);
         result.innerText = `result: ${total}`;
         equalsMap.set(key, total)
-        key++
-        console.log("total in map")
+        
+        console.log("total in equalsMap")
         console.log(equalsMap)
+       
+        inputs = [];
+        sequence = [];
+        doubleDigit.set(0, 0);
+        return total;
 
     }
     if (minus > 0){
@@ -70,9 +80,10 @@ function equals(event) {
         key++    
         console.log("total in map")
         console.log(equalsMap)
-        doubleDigit.clear();
+        //doubleDigit.clear();
         inputs = [];
         sequence = [];
+        doubleDigit.set(0, 0);
         return total;
       }
     if (times > 0){
@@ -83,6 +94,11 @@ function equals(event) {
         key++
         console.log("total in map")
         console.log(equalsMap)
+
+        inputs = [];
+        sequence = [];
+        doubleDigit.set(0, 0);
+        return total;
     }
     if (div > 0){
         div = 0;
@@ -92,6 +108,11 @@ function equals(event) {
         key++
         console.log("total in map")
         console.log(equalsMap)
+        doubleDigit.clear();
+        inputs = [];
+        sequence = [];
+        doubleDigit.set(0, 0);
+        return total;
     }
 }
 
@@ -101,8 +122,7 @@ let addBtn = document.getElementById("addition").addEventListener("click", add);
 let plus = 0;
 function add() {
   console.log("add")
-   sequence = [];
-   inputs = [];
+  
   if (minus > 0){
    minus = 0;
    subtract();
@@ -115,8 +135,10 @@ function add() {
     div = 0;
     divide();
   }
+  sequence = [];
+  inputs = [];
     let sum = 0;
-    if (equalsMap.size > 0 && doubleDigit.size < 1){
+    if (equalsMap.size > 0){
     sum = equalsMap.get(equalsMap.size - 1) + doubleDigit.get(0);
     console.log("sum: " + sum)
     plus++
@@ -126,16 +148,15 @@ function add() {
     console.log("equalsMap:")
     console.log(equalsMap)
     return sum;
-  }else{
-    sum = doubleDigit.get(0);
-    plus++
-    console.log("plus stack="+plus);
-    equalsMap.set(key, sum);
-    key++;
-    console.log("equalsMap:")
+  }else if (doubleDigit.size >= 1){
+    equalsMap.set(key, convertToNum)
+    console.log("equalsMap");
     console.log(equalsMap)
+    plus++
     return sum;
-  }
+
+}
+  
 }
 
 let subtractBtn = document
@@ -170,16 +191,12 @@ function subtract() {
     console.log("equalsMap:");
     console.log(equalsMap);
     return difference;
-  }else{
-    difference = doubleDigit.get(0);
-    minus++;
-    console.log("minus stack=" + minus)
-    equalsMap.set(key, difference);
-    key++;
-    console.log("equalsMap:");
-    console.log(equalsMap);
-    return difference; 
-    
+  }else if (doubleDigit.size >= 1){
+    equalsMap.set(key, convertToNum)
+    console.log("equalsMap");
+    console.log(equalsMap)
+    minus++
+    return difference;
 }
 }
 
@@ -212,16 +229,14 @@ function multiply(){
      console.log("equalsMap:");
      console.log(equalsMap);
      return product;
-   }else{
-     product = doubleDigit.get(0);
-     times++
-     console.log("times stack="+times)
-     equalsMap.set(key, product);
-     key++;
-     console.log("equalsMap:")
-     console.log(equalsMap)
-     return product;
-  }
+   }else if (doubleDigit.size >= 1){
+    equalsMap.set(key, convertToNum)
+    console.log("equalsMap");
+    console.log(equalsMap)
+    times++
+    return product;
+
+}
 }
 
 let divideBtn = document.getElementById("division").addEventListener('click', divide);
@@ -253,15 +268,13 @@ function divide(){
    console.log("equalsMap:");
    console.log(equalsMap);
    return quotient;
- }else{
-   quotient = doubleDigit.get(0);
-   div++
-   console.log("div stack="+div)
-   equalsMap.set(key, quotient);
-   key++;
-   console.log("equalsMap:")
-   console.log(equalsMap)
-   return quotient;
+ }else if (doubleDigit.size >= 1){
+  equalsMap.set(key, convertToNum)
+    console.log("equalsMap");
+    console.log(equalsMap)
+    div++
+    return quotient;
+
 }
   }
 
