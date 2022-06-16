@@ -6,6 +6,11 @@ function getInputs(value) {
   return operand;
 }
 
+function operationCounters(o, f){
+  if (o > 0){
+      f;
+  }
+ }
 let nums = document.getElementById("numbers");
 //global vars for all numbers handler
 let inputs = [];
@@ -44,6 +49,7 @@ function makeMaps() {
   }else{
     let keyDouble = 0;
     doubleDigit.set(keyDouble, convertToNum);
+    console.log("doubleDigit: ")
     console.log(doubleDigit);
   }
   
@@ -56,12 +62,14 @@ let equalsBtn = document
 let result = document.getElementById("result");
 //display the value at last equalsMap index
 let total = 0;
-function equals(event) {
+function equals() {
     if (plus > 0){
         plus = 0;
-        total = equalsMap.get(equalsMap.size - 1) + doubleDigit.get(0);
+        total = operandMap.get(operandMap.size - 1) + doubleDigit.get(0);
+        equalsMap.set(key, total);
+        key++
         result.innerText = `result: ${total}`;
-        equalsMap.set(key, total)
+        equalsMap.set(key, total);
         
         console.log("total in equalsMap")
         console.log(equalsMap)
@@ -122,11 +130,7 @@ let addBtn = document.getElementById("addition").addEventListener("click", add);
 let plus = 0;
 function add() {
   console.log("add")
-  
-  if (minus > 0){
-   minus = 0;
-   subtract();
-   }
+  operationCounters(minus, subtract);
    if (times > 0){
    times = 0;
    multiply();
@@ -137,27 +141,58 @@ function add() {
   }
   sequence = [];
   inputs = [];
-    let sum = 0;
-    if (equalsMap.size > 0){
-    sum = equalsMap.get(equalsMap.size - 1) + doubleDigit.get(0);
-    console.log("sum: " + sum)
-    plus++
-    console.log("plus stack="+plus)
-    equalsMap.set(key, sum);
+  let sum = 0;
+    if (operandMap.size < 1){
+      operandMap.set(operandKey, doubleDigit.get(0))
+      operandKey++
+      console.log("operands map")
+      console.log(operandMap)  
+      return null;
+    }else if (operandMap.size == 1){
+    operandMap.set(operandKey, doubleDigit.get(0))
+    operandKey++
+    sum = operandMap.get(operandMap.size - 1) + operandMap.get(operandMap.size - 2)
+    console.log("operands map")
+    console.log(operandMap)
+    equalsMap.set(key, sum)
     key++;
-    console.log("equalsMap:")
-    console.log(equalsMap)
-    return sum;
-  }else if (doubleDigit.size >= 1){
-    equalsMap.set(key, convertToNum)
     console.log("equalsMap");
-    console.log(equalsMap)
-    plus++
-    return sum;
+    console.log(equalsMap);
+      console.log("sum");
+      console.log(sum)
+      plus++
+      return sum;
+    }else if (operandMap.size > 1) {
+      sum = equalsMap.get(equalsMap.size - 1) + doubleDigit.get(0);
+      plus++
+      console.log("sum from equalsmap")
+      console.log(sum)
+      equalsMap.set(key, sum);
+      key++
+      return sum;
+    }
+  }
+//     if (equalsMap.size > 0){
+//     sum = equalsMap.get(equalsMap.size - 1) + doubleDigit.get(0);
+//     console.log("sum: " + sum)
+//     plus++
+//     console.log("plus stack="+plus)
+//     equalsMap.set(key, sum);
+//     key++;
+//     console.log("equalsMap:")
+//     console.log(equalsMap)
+//     return sum;
+//   }else if (doubleDigit.size >= 1){
+//     operandMap.set(operandKey, doubleDigit.get(0))
+//     operandKey++
+//     console.log("operandMap");
+//     console.log(operandMap)
+//     plus++
+//     return sum;
 
-}
+// }
   
-}
+
 
 let subtractBtn = document
   .getElementById("subtraction")
@@ -168,8 +203,8 @@ function subtract() {
   console.log("subtract");
   sequence = [];
   inputs = [];
-  if (add > 0){
-    add = 0;
+  if (plus > 0){
+    plus = 0;
     add();
   }
    if (times > 0){
@@ -192,9 +227,10 @@ function subtract() {
     console.log(equalsMap);
     return difference;
   }else if (doubleDigit.size >= 1){
-    equalsMap.set(key, convertToNum)
-    console.log("equalsMap");
-    console.log(equalsMap)
+    operandMap.set(operandKey, doubleDigit.get(0))
+    operandKey++
+    console.log("operandMap");
+    console.log(operandMap)
     minus++
     return difference;
 }
