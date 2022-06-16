@@ -28,8 +28,6 @@ nums.addEventListener("click", function (event) {
   console.log(doubleDigit)
 });
 
-
-
 let equalsMap = new Map();
 let key = 0;
 let operandMap = new Map();
@@ -47,8 +45,6 @@ function makeMaps() {
     console.log("doubleDigit: ")
     console.log(doubleDigit);
   }
-  
-
 }
 
 let equalsBtn = document
@@ -113,7 +109,6 @@ function equals() {
     }
 }
 
-
 let addBtn = document.getElementById("addition").addEventListener("click", add);
 //counter for how many times add() callled
 let plus = 0;
@@ -173,8 +168,7 @@ function add() {
       key++
       console.log("plus = " + plus)
       return sum;
-    }
-   
+    }   
   }
 
 let subtractBtn = document
@@ -292,7 +286,7 @@ function multiply(){
     times++
     return product;
 
-}
+  }
 }
 
 let divideBtn = document.getElementById("division").addEventListener('click', divide);
@@ -336,8 +330,8 @@ function divide(){
     div++
     return quotient;
 
-}
   }
+}
 
 //MC
 let clear = document.getElementById("memory-clear")
@@ -359,13 +353,8 @@ recall.addEventListener('click', function (event){
     event = equalsMap.get(equalsMap.size - 1);
     equalsMap.delete(equalsMap.size - 1);
     key--;
-    console.log("recallValue: ")
-    console.log(event)
-    console.log(equalsMap)
-    
-    
-    
-  
-  
+    console.log("recallValue: ");
+    console.log(event);
+    console.log(equalsMap); 
 })
   
