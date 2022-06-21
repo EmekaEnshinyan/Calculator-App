@@ -1,21 +1,27 @@
-head{
+.container{
 
-    text-align: center;
-}
-.numbers{
-
-    text-align: center;
-}
-.operators{
-
-    text-align: center;
-    margin-left: 50px;
+    border: 5px solid #0b0d0fae;
+    display: flex;
+    height: 100%
+        
 
 }
-.memory-buttons{
+.container > button{
+    flex-direction: row;
+    flex: 1;
+    align-items: stretch;
 
-    text-align: center;
-    margin-left: 50px;
+}
+.container > .operators{
+    flex-direction: row;
+    flex: 1;
+    align-items: stretch;
+
+}
+.container > .memory-buttons{
+    flex-direction: row;
+    flex: 1;
+    align-items: stretch;
 
 }
 .result{
