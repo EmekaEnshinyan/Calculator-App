@@ -1,0 +1,103 @@
+body {
+    backgroud-color: silver;
+    font-family: Tahoma;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  #InnerContainer {
+    height: 350px;
+    width: 200px;
+    padding: 8px 20px 8px 8px;
+    margin: 20px auto;
+    background-color: #585858;
+    border-radius: 15px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #c1c1c1;
+    border-left: 2px solid #c1c1c1;
+    box-shadow: -8px 15px 17px rgba(0, 0, 0, 0.6),
+      inset -100px 0px 100px rgba(255, 255, 255, 0.5), 1px 1px #181818,
+      2px 2px #181818, 3px 3px #181818, 3px 3px #181818;
+  }
+  
+  #display {
+    display: block;
+    margin: 15px auto;
+    height: 47px;
+    width: 174px;
+    padding: 0 10px;
+    border-radius: 4px;
+    border-top: 2px solid #c1c1c1;
+    border-right: 2px solid #c1c1c1;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    background-color: #fff;
+    box-shadow: inset 0px -5px 10px #030303,
+      inset 2px -10px 1px rgba(150, 150, 150, 0.5);
+    font-size: 28px;
+    color: #666;
+    text-align: right;
+    font-weight: 500;
+    box-shadow: 0px -5px 1px #030303, inset 2px -5px 1px #dcdcdc;
+  }
+  
+  .button {
+    display: inline-block;
+    margin: 2px;
+    width: 42px;
+    height: 42px;
+    font-size: bold;
+    border-radius: 10px;
+    border: 2px solid black;
+  }
+  
+  .mathbuttons {
+    margin: 2px 2px 6px 2px;
+    color: #fff;
+    text-shadow: -1px -1px 0px #44006f;
+    background-color: #434343;
+    border-top: 2px solid #c1c1c1;
+    border-right: 2px solid #c1c1c1;
+    border-bottom: 2px solid #181818;
+    border-left: 2px solid #181818;
+    box-shadow: 0px -3px 2px #030303, inset 0px -20px 1px #2e2e2e;
+  }
+  
+  .digits {
+    color: #181818;
+    text-shadow: 1px 1px 0px #fff;
+    background-color: #ebebeb;
+    border-radius: 4px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    border: 2px solid black;
+    border-bottom: 2px solid #c1c1c1;
+    border-left: 2px solid #c1c1c1;
+    box-shadow: 0px -3px 2px #030303, inset 0px -20px 1px #dcdcdc;
+  }
+  
+  #clear {
+    color: #fff;
+    text-shadow: -1px -1px 0px #44006f;
+    background-color: #d20000;
+    border-top: 2px solid black;
+    border-right: 2px solid #ff8484;
+    border-bottom: 2px solid #800000;
+    border-left: 2px solid #800000;
+    box-shadow: 0px 0px 2px #030303, inset 0px -20px 1px #b00000;
+  }
+  
+  .digits:active,
+  .mathbuttons:active,
+  #clear:active {
+    transform: translatey(2px);
+    box-shadow: 0 0 2px 2px #848484;
+  }
+  

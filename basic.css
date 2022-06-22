@@ -1,0 +1,36 @@
+.container > .numbers > button {
+    padding: 10px;   
+    font-size: 2em;
+    color: #000000;
+  }
+
+.container > .operators > input{
+    padding: 10px;   
+    font-size: 2em;
+    color: #000000;
+   
+}
+
+.container > .memory-buttons > input{
+    padding: 10px;   
+    font-size: 2em;
+    color: #000000;
+    
+}
+
+  html, body {
+    background-color: darkslategrey;
+}
+
+  .numbers > button:nth-child(1n) {
+    background-color: #96ceb4;	
+  }
+  
+  .numbers > button:nth-child(3n) {
+    background-color: #88d8b0;
+  }
+  
+  .numbers > button:nth-child(2n) {
+    background-color: #ff6f69;
+  }
+

@@ -60,10 +60,8 @@ function equals() {
         total = add()
         result.innerText = `result: ${total}`;
         equalsMap.set(key, total);
-        
-        console.log("total in equalsMap")
-        console.log(equalsMap)
-       
+        console.log("total in equalsMap");
+        console.log(equalsMap);
         inputs = [];
         sequence = [];
         doubleDigit.set(0, 0);
@@ -71,11 +69,11 @@ function equals() {
 
     }else if (minus > 0){
         minus = 0;
-        total = subtract()
+        total = subtract();
         result.innerText = `result: ${total}`;
         equalsMap.set(key, total);
-        console.log("total in equalsmap")
-        console.log(equalsMap)
+        console.log("total in equalsmap");
+        console.log(equalsMap);
         inputs = [];
         sequence = [];
         doubleDigit.set(0, 0);
@@ -84,11 +82,10 @@ function equals() {
         times = 0;
         let total = equalsMap.get(equalsMap.size - 1) * doubleDigit.get(0);
         result.innerText = `result: ${total}`;
-        equalsMap.set(key, total)
-        key++
-        console.log("total in map")
-        console.log(equalsMap)
-
+        equalsMap.set(key, total);
+        key++;
+        console.log("total in map");
+        console.log(equalsMap);
         inputs = [];
         sequence = [];
         doubleDigit.set(0, 0);
