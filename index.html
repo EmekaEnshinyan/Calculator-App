@@ -4,38 +4,40 @@
         <title>Caluculator App</title>
         <link rel="stylesheet" href="index.css"/>
         <link rel="stylesheet" href="basic.css"/>
-    </head>
+    <body>
+        <div class="container-root">
+        <div class="container">
+                <div class="numbers" id="numbers">
+                    <button class="button">7</button>
+                    <button class="button">8</button>
+                    <button class="button">9</button>
+                    <button class="button">4</button>
+                    <button class="button">5</button>
+                    <button class="button">6</button>
+                    <button class="button">1</button>
+                    <button class="button">2</button>
+                    <button class="button">3</button>
+                    <button class="button">0</button>
+                    <button class="button">.</button>
+                    
 
-<body>
-    <div class="container">
-        <div id="numbers" class="numbers">
-            <button id="one">1</button>
-            <button id="two">2</button>
-            <button id="three">3</button>
-            <button id="three">4</button>
-            <button id="three">5</button>
-            <button id="six">6</button>
-            <button id="seven">7</button>
-            <button id="eight">8</button>
-            <button id="nine">9</button>
-            <button id="zeros">0</button>
-            <button id="decimal">.</button>
+                </div>
+                <div class="operators" id="operators">
+                    <button class="button" id="addition" value="+">+</button>
+                    <button class="button" id="subtraction" value="-">-</button>
+                    <button class="button" id="multiplication" value="x">*</button>
+                    <button class="button" id="division" value="/">/</button>
+                    <button class="button" id="equals" value="=">=</button>
+                    <button class="button" id="memory-save">M+</button>
+                    <button class="button" id="memory-recall">MC</button>
+                    <button class="button" id="memory-clear">MC</button>
+                </div>
+            </div>
         </div>
-        <div class="operators" id="operators">
-            <button type="button" id="addition" value="+"></button>
-            <input type="button" id="subtraction" value="-">
-            <input type="button" id="multiplication" value="x">
-            <input type="button" id="division" value="/">
-            <input type="button" id="equals" value="=">
-        </div>
-        <div class="memory-buttons" id="buttons">
-            <button type="button" id="memory-clear" value="MC"></button>
-            <button type="button" id="memory-add" value="M+"></button>
-            <button type="button" id="memory-recall" value="MR"></button>
-        </div>
-    </div>
-</body>   
     
+    </body>
+        </html>
+
 
    <script src="app.js"></script>
    

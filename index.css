@@ -1,9 +1,15 @@
-.container {
-    display: flex;
-    flex-direction: row;
-    border: 2px solid #030303;
-   
+.container > div.operators{
+    display: grid;
+    width: 600px;
+    height:500px;
+    background-color: gray;
+    row-gap: 5px;
+    
+
 }
 
-
+.container > div.numbers{
+    display: flex;
+    flex-direction: column;
+}
 
