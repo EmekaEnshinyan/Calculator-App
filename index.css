@@ -1,15 +1,44 @@
-.container > div.operators{
+.container-root{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 200px;
+}
+
+.calculator-container{
+  border: 2px solid black;
+  border-radius: 13px;
+  background-color: black;
+  height: auto;
+  width: auto;
+  padding: 5px;
+}
+
+.operators-container{
+    display: block;
+    border-radius: 7px;
+    cursor: pointer;   
+    font-size: 23px;
+    padding: 11px 26px; 
+    margin: 0px 0px 7px -4px; 
+}
+
+.numbers-container{
     display: grid;
-    width: 600px;
-    height:500px;
-    background-color: gray;
-    row-gap: 5px;
-    
-
+  grid-template-columns: 1fr 1fr 1fr; 
+  justify-items: end;
 }
-
-.container > div.numbers{
-    display: flex;
-    flex-direction: column;
+.number-button{
+    border-radius: 7px;
+  cursor: pointer;
+  font-size: 23px;
+  padding: 11px 17px;  
+  margin-left: 4px; 
 }
-
+.operators-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  justify-items: end;
+}
