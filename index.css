@@ -15,7 +15,6 @@
   width: auto;
   padding: 5px;
 }
-
 .operators-container{
     display: block;
     border-radius: 7px;
@@ -24,14 +23,13 @@
     padding: 11px 26px; 
     margin: 0px 0px 7px -4px; 
 }
-
 .numbers-container{
-    display: grid;
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr; 
   justify-items: end;
 }
 .number-button{
-    border-radius: 7px;
+  border-radius: 7px;
   cursor: pointer;
   font-size: 23px;
   padding: 11px 17px;  
