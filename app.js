@@ -58,7 +58,7 @@ function equals() {
     if (plus > 0){
         plus = 0;
         total = add()
-        result.innerText = `result: ${total}`;
+        result.value = `${total}`;
         equalsMap.set(key, total);
         console.log("total in equalsMap");
         console.log(equalsMap);
@@ -70,7 +70,7 @@ function equals() {
     }else if (minus > 0){
         minus = 0;
         total = subtract();
-        result.innerText = `result: ${total}`;
+        result.value = `${total}`;
         equalsMap.set(key, total);
         console.log("total in equalsmap");
         console.log(equalsMap);
@@ -78,10 +78,11 @@ function equals() {
         sequence = [];
         doubleDigit.set(0, 0);
         return total;
+        
       }else if (times > 0){
         times = 0;
         let total = equalsMap.get(equalsMap.size - 1) * doubleDigit.get(0);
-        result.innerText = `result: ${total}`;
+        result.value = `${total}`;
         equalsMap.set(key, total);
         key++;
         console.log("total in map");
@@ -93,7 +94,7 @@ function equals() {
     }else if (div > 0){
         div = 0;
         let total = equalsMap.get(equalsMap.size - 1) / doubleDigit.get(0);
-        result.innerText = `result: ${total}`;
+        result.value = `${total}`;
         equalsMap.set(key, total)
         key++
         console.log("total in map")
@@ -205,7 +206,7 @@ function subtract() {
    minus++
    console.log("minus = " + minus)
    return difference; 
-  }else if (operandMap.size < 1){
+  }else if (operandMap.size = 1){
       operandMap.set(operandKey, doubleDigit.get(0))
       operandKey++
       console.log("operands map")
@@ -214,7 +215,7 @@ function subtract() {
       console.log("plus = " + plus)
       minus++
       return null;
-    }else if (operandMap.size == 1){
+    }else if (operandMap.size < 1){
       operandMap.set(operandKey, doubleDigit.get(0))
       operandKey++
     difference = operandMap.get(operandMap.size - 2) - operandMap.get(operandMap.size - 1)

@@ -1,3 +1,7 @@
+body{
+    background-color: silver;
+    font-family: Tahoma;
+}
 .container-root{
   display: flex;
   align-items: center;
@@ -5,38 +9,115 @@
   text-align: center;
   flex-direction: column;
   margin-top: 200px;
+  
 }
 
-.calculator-container{
-  border: 2px solid black;
-  border-radius: 13px;
-  background-color: black;
-  height: auto;
-  width: auto;
+.container-calculator{
+  border: 50px;
+  height: -100px;
+  width: -100px;
   padding: 5px;
+  padding: 8px 20px 8px 8px;
+  margin: 20px auto;
+  background-color: #585858;
+  border-radius: 15px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #c1c1c1;
+  border-left: 2px solid #c1c1c1;
+  box-shadow: -8px 15px 17px rgba(0, 0, 0, 0.6),
+    inset -100px 0px 100px rgba(255, 255, 255, 0.5), 1px 1px #181818,
+    2px 2px #181818, 3px 3px #181818, 3px 3px #181818;
 }
-.operators-container{
-    display: block;
+
+.container-operators{
+    margin: -260px -10px 3px 400px;
+    
+}
+
+.container-numbers{
+    display: grid;
+    margin: 0px 61px 23px 0px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.container-memory{
+    display:grid;
+    margin: -50px 61px 23px 0px;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+.memory{
     border-radius: 7px;
-    cursor: pointer;   
+    cursor: pointer;
     font-size: 23px;
-    padding: 11px 26px; 
-    margin: 0px 0px 7px -4px; 
+    padding: 11px 17px;  
+    margin-left: 4px; 
+    color: #fff;
+  text-shadow: -1px -1px 0px #44006f;
+  background-color: #d20000;
+  border-top: 2px solid black;
+  border-right: 2px solid #ff8484;
+  border-bottom: 2px solid #800000;
+  border-left: 2px solid #800000;
+  box-shadow: 0px 0px 2px #030303, inset 0px -20px 1px #b00000;
 }
-.numbers-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; 
-  justify-items: end;
+
+.operator{
+  display: block;
+  border-radius: 7px;
+  cursor: pointer;   
+  font-size: 23px;
+  padding: 11px 25px; 
+  margin: 0px 0px 7px 200px; 
+  color: #fff;
+  text-shadow: -1px -1px 0px #44006f;
+  background-color: #434343;
+  border-top: 2px solid #c1c1c1;
+  border-right: 2px solid #c1c1c1;
+  border-bottom: 2px solid #181818;
+  border-left: 2px solid #181818;
+  box-shadow: 0px -3px 2px #030303, inset 0px -20px 1px #2e2e2e;
 }
-.number-button{
+
+.number{
   border-radius: 7px;
   cursor: pointer;
-  font-size: 23px;
-  padding: 11px 17px;  
-  margin-left: 4px; 
+  font-size: 25px;
+  padding: 11px 26.7px; 
+  margin: 0px 0px 4px 7.9px;
+  font-size: bold;
+  border-radius: 10px;
+  border: 2px solid black;
+  color: #181818;
+  text-shadow: 1px 1px 0px #fff;
+  background-color: #ebebeb;
+  border-radius: 4px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  border: 2px solid black;
+  border-bottom: 2px solid #c1c1c1;
+  border-left: 2px solid #c1c1c1;
+  box-shadow: 0px -3px 2px #030303, inset 0px -20px 1px #dcdcdc;
 }
-.operators-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; 
-  justify-items: end;
+
+.result{
+    display: block;
+    margin: auto;
+    padding: 0 50px;
+    border-radius: 4px;
+    border-top: 2px solid #c1c1c1;
+    border-right: 2px solid #c1c1c1;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    background-color: #fff;
+    box-shadow: inset 0px -5px 10px #030303,
+      inset 2px -10px 1px rgba(150, 150, 150, 0.5);
+    font-size: 40px;
+    color: #666;
+    text-align: right;
+    font-weight: 500;
+    box-shadow: 0px -5px 1px #030303, inset 2px -5px 1px #dcdcdc;
 }
