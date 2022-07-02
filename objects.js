@@ -14,6 +14,13 @@ n2.addEventListener('click', concat);
 const o1 = document.getElementById("+");
 const o2 = document.getElementById("-");
 
+console.log(`${n1.innerText}`);
+if (n1.innerText == 1){
+    const testOne = document.getElementById("test-one").innerHTML = 1
+}
+
+
+
 let objOne = {
 	operands: "",
 	opHolder: "",
@@ -33,21 +40,8 @@ let arr = [1,2,3,4,5,6,7,8,9,0];
 //this should be useful
 //return `${first}${operate}${second}`
 
-//Create a regEx object
 
-const reg = new RegExp('/(\d+)/');
-let str = "this is a 1 test";
-console.log(str.match(/(\d)/));
-let numsArray = [];
-function matching(m){
-    let matches = m.match(/(\d)/);
-    if (matches){
-        numsArray.push(matches);
-        console.log("array: " + numsArray)
-    }
-}
 
-const testOne = document.getElementById("test-one").innerHTML = matching(str);
 
 
 
