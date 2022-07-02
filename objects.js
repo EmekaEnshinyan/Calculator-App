@@ -3,6 +3,10 @@
  //which will be the arrays and the methods
   //which will invoke the proper operation
 
+  /* DESIDERATA:
+    1. chain operations (e.g. 1 + 6 * 2 / 4 //3)
+    2.
+  */
 const n1 = document.getElementById("one");
 n1.addEventListener('click', concat);
 const n2 = document.getElementById("two");
@@ -21,19 +25,38 @@ let objOne = {
 	result: "",
 	
 }
-let first = object.operands = n1;   
-let second = object.operands = n2;
-let operate = object.operators = o1;
 
+// let second = object.operands = n2;
+// let operate = object.operators = o1;
 let arr = [1,2,3,4,5,6,7,8,9,0];
 
+//this should be useful
+//return `${first}${operate}${second}`
 
-return `${first}${operate}${second}`
+//Create a regEx object
 
-function concat(insert){
-    let x = ``;
-    x += `${insert}`
-    console.log(x);
+const reg = new RegExp('/(\d+)/');
+let str = "this is a 1 test";
+console.log(str.match(/(\d)/));
+let numsArray = [];
+function matching(m){
+    let matches = m.match(/(\d)/);
+    if (matches){
+        numsArray.push(matches);
+        console.log("array: " + numsArray)
+    }
+}
+
+const testOne = document.getElementById("test-one").innerHTML = matching(str);
+
+
+
+
+function concat(){
+    console.log("test")
+    let first = objOne.operands = n1;
+    
+    console.log(first)
 }
 
 function add(o1, o2){ //doesn't work. so
