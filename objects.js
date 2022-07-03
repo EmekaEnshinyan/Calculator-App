@@ -19,6 +19,7 @@ for (item of buttons){
         if (objOne.operators == ""){
             objOne.operandOne += input;
             console.log("operandOne")
+            console.log(typeof objOne.operandOne)
             console.log(objOne.operandOne)
         }else{
             objOne.operandTwo += input;
@@ -43,19 +44,18 @@ for (item of operator){
 let x = 11+22+33;
 console.log(x)
 let objOne = {
-	operandOne: "",
+	operandOne: '',
     operandTwo: "",
 	operators: [],
 	operation: function(){
-        let r = objOne.operandOne.replace(/\"/, )
-        let result = r;
-        console.log(result)
-        console.log(typeof result)
+        let result = objOne.operandOne + objOne.operators + objOne.operandTwo;
+        console.log(result);
+        console.log(typeof result);
         return result;
     },
 	
 }
-
+console.log(objOne.operandOne)
 function result(){
     console.log("result test")
     objOne.operation();
