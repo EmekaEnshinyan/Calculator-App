@@ -15,14 +15,17 @@ const o1 = document.getElementById("+");
 const o2 = document.getElementById("-");
 
 console.log(`${n1.innerText}`);
-if (n1.innerText == 1){
-    const testOne = document.getElementById("test-one").innerHTML = 1
+
+let input = "";
+function concat(x){
+    input = x.innerText;
+    console.log(input);
 }
 
-
-
 let objOne = {
-	operands: "",
+	operands: function(){
+        this.opHolder
+    },
 	opHolder: "",
 	operators: "",
 	operation: function(){
