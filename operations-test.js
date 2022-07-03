@@ -1,12 +1,20 @@
-if (numSet.has(input[input.length - 1])){
-  objOne.opHolder += input;
-  }else{
-      objOne.operands.push(objOne.opHolder * 1)
-      objOne.operators.push(input[input.length - 1].replaceAll('', ''))
-      objOne.opHolder = "";
-      return;
-  }
-  
-  console.log(objOne.opHolder)
-  console.log(objOne.operands)
-  console.log(objOne.operators)
+const equals = document.getElementById("equals").addEventListener('click', calculate);
+
+let operands = {
+  operandOne: 1,
+  operandTwo: 2,
+  operator: '+'
+}
+
+let operators = {
+  '+': (numOne, numTwo) => numOne + numTwo,
+  '-': (numOne, numTwo) => numOne - numTwo
+}
+
+
+function calculate(){
+  if (operands.operandOne == undefined) return;
+  let result = operators[operands.operator](operands.operandOne, operands.operandTwo)
+  console.log(result);
+  return result;
+}
