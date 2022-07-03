@@ -7,73 +7,57 @@
     1. chain operations (e.g. 1 + 6 * 2 / 4 //3)
     2.
   */
-const n1 = document.getElementById("one");
-n1.addEventListener('click', concat);
-const n2 = document.getElementById("two");
-n2.addEventListener('click', concat);
-const o1 = document.getElementById("+");
-const o2 = document.getElementById("-");
+const equalsBtn = document.getElementById("equals").addEventListener('click', result);
+const operatorSet = new Set(["+", "-", "*", "/"]);
+const numSet = new Set(["1","2","3","4","5","6","7","8","9","0","."]);
 
-console.log(`${n1.innerText}`);
 
-let input = "";
-function concat(x){
-    input = x.innerText;
-    console.log(input);
+let buttons = document.getElementsByClassName("number");
+for (item of buttons){
+    item.addEventListener('click', (event) => {
+        let input = event.target.innerText;
+        if (objOne.operators == ""){
+            objOne.operandOne += input;
+            console.log("operandOne")
+            console.log(objOne.operandOne)
+        }else{
+            objOne.operandTwo += input;
+            console.log("operandTwo")
+            console.log(objOne.operandTwo)
+        }
+    })
 }
 
+let operator = document.getElementsByClassName("operator");
+for (item of operator){
+    item.addEventListener('click', (event) => {
+        let input = event.target.innerText;
+        if (!objOne.operators.includes("+", "-", "*", "/"))
+        objOne.operators += input;
+        console.log(objOne.operators)
+        return;
+    })
+    
+}
+
+let x = 11+22+33;
+console.log(x)
 let objOne = {
-	operands: function(){
-        this.opHolder
-    },
-	opHolder: "",
-	operators: "",
+	operandOne: "",
+    operandTwo: "",
+	operators: [],
 	operation: function(){
-	(!this.operand.has() === NaN)
-		return 
-	},
-	result: "",
+        let r = objOne.operandOne.replace(/\"/, )
+        let result = r;
+        console.log(result)
+        console.log(typeof result)
+        return result;
+    },
 	
 }
 
-// let second = object.operands = n2;
-// let operate = object.operators = o1;
-let arr = [1,2,3,4,5,6,7,8,9,0];
-
-//this should be useful
-//return `${first}${operate}${second}`
-
-
-
-
-
-
-
-function concat(){
-    console.log("test")
-    let first = objOne.operands = n1;
-    
-    console.log(first)
+function result(){
+    console.log("result test")
+    objOne.operation();
 }
-
-function add(o1, o2){ //doesn't work. so
-			//instead, need to 
-			//store whatever num
-			//was pressed
-}
-
-//call each mutable part and build the chained 
- //operations
-
-//this includes the operation function
-let objTwo = {
-    numbers: [1,2,3,4,5],
-    add: function (x) {
-        this.numbers.forEach(x =>{
-            this.numbers;
-        })},
-     subtract: function (y) {
-        this.numbers.forEach(y =>{
-            this.numbers;
-        })},
-}
+let testOne = document.getElementById("test-one").innerText = objOne.opHolder;
