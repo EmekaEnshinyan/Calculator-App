@@ -82,12 +82,13 @@ let operations = {
     '/': (valueOne, valueTwo) => valueOne / valueTwo
 }
 
+let r = document.getElementById("result");
 let output = 0;
 function operate(){
     output = operations[math.operator[math.operator.length - 1]](math.first, math.second);
     console.log(output);
     math.first = output;
     math.second = 0;
-    equalsBtn.innerText = output;
+    r.innerText = output;
     
 }
