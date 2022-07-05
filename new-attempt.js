@@ -38,6 +38,7 @@ function eval(){
 
 }
 let res;
+var i = 0;
 console.log(res)
 let operators = document.getElementsByClassName("operators")
 for (item of operators){
@@ -48,7 +49,8 @@ for (item of operators){
         math.operator.push(op);
         console.log(math.operator);
         if (math.second != 0){
-            res = operations[math.operator[math.operator.length - 1]](math.first, math.second);
+            res = operations[math.operator[i]](math.first, math.second);
+            i++;
             console.log(res);
             math.second = 0;
             math.first = res;
@@ -86,5 +88,6 @@ function operate(){
     console.log(output);
     math.first = output;
     math.second = 0;
+    equalsBtn.innerText = output;
     
 }
