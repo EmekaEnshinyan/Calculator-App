@@ -18,15 +18,15 @@ for (item of numbers){
     item.addEventListener('click', (event) =>{
         let value = event.target.innerText;
         input += value; 
-        if (math.operator != "" && math.first != 0 && math.second == 0){
+        if (res != undefined){
             //i need to have the chain operation go to the second operand
             math.second = input * 1;
         }else{
             math.first = input * 1;
         }
-        console.log(math.first);
+        console.log("first operand: " + math.first);
         console.log(typeof math.first);
-        console.log(math.second);
+        console.log("second operand: " + math.second);
         console.log(typeof math.second);
     })
     
@@ -37,23 +37,24 @@ function eval(){
     console.log(math.first + math.second)
 
 }
-
+let res;
+console.log(res)
 let operators = document.getElementsByClassName("operators")
 for (item of operators){
     item.addEventListener('click', (event) => {
         input = "";
-        math.operator = event.target.innerText;
+        res = 0;
+        op = event.target.innerText;
+        math.operator.push(op);
         console.log(math.operator);
         if (math.second != 0){
-            let res = operations[math.operator](math.first, math.second);
+            res = operations[math.operator[math.operator.length - 1]](math.first, math.second);
             console.log(res);
-            math.operator = "";
             math.second = 0;
             math.first = res;
-            console.log(math.first)
+            console.log("new first operand: " + math.first);
+            return res;
         }
-        
-        
     })
 }
 
@@ -70,7 +71,7 @@ let x = 1 + 2 + 3 - 4 * 5;
 let math = {
     first: 0,
     second: 0,
-    operator: "",
+    operator: [],
     }
 let operations = {
     '+': (valueOne, valueTwo) => valueOne + valueTwo,
@@ -81,9 +82,9 @@ let operations = {
 
 let output = 0;
 function operate(){
-    output = operations[math.operator](math.first, math.second);
+    output = operations[math.operator[math.operator.length - 1]](math.first, math.second);
     console.log(output);
     math.first = output;
     math.second = 0;
-    math.operator = ""
+    
 }
