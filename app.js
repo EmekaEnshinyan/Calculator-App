@@ -14,13 +14,13 @@ for (item of numbers){
          math.firstOperand = math.firstOperand !== null 
           ? math.firstOperand + number
           : number;
-          result.innerText += math.firstOperand;
+          result.innerText = math.firstOperand;
           /*displayResult(math.firstOperand)*/
       } else{
           math.secondOperand = math.secondOperand !== null 
           ? math.secondOperand + number
           : number;
-          result.innerText += math.secondOperand;
+          result.innerText = math.secondOperand;
           /*displayResult(math.secondOperand)*/
       }
   })
@@ -39,7 +39,7 @@ for (item of operators){
         operate();
     }
     math.operator = event.target.value;
-    result.innerText += math.operator;
+    result.innerText = math.operator;
   } 
 )}
 
