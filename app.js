@@ -3,7 +3,7 @@ let math = {
   firstOperand: null,
   secondOperand: null,
   operator: null,
-  }
+  };
 
 let numbers = document.getElementsByClassName("number")
 for (item of numbers){
@@ -13,15 +13,17 @@ for (item of numbers){
       if(math.operator === null){
          math.firstOperand = math.firstOperand !== null 
           ? math.firstOperand + number
-          : number
+          : number;
+          result.innerText += math.firstOperand;
           /*displayResult(math.firstOperand)*/
       } else{
           math.secondOperand = math.secondOperand !== null 
           ? math.secondOperand + number
-          : number
+          : number;
+          result.innerText += math.secondOperand;
           /*displayResult(math.secondOperand)*/
       }
-  })    
+  })
 }
 //for debugging
 /*function displayResult(result){
@@ -37,7 +39,7 @@ for (item of operators){
         operate();
     }
     math.operator = event.target.value;
-    console.log(math)
+    result.innerText += math.operator;
   } 
 )}
 
@@ -51,9 +53,7 @@ function operate(){
   result.innerText = output;
   memoryStack.push(output);
   //reset in order to chain
-  resetMath(output)
-  console.log(math)
-  console.log(typeof math.firstOperand, typeof math.secondOperand)
+  resetMath(output);
 }
 
 function resetMath(input){
