@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html>
+    <link rel="stylesheet" href="index.css"/>
     <head id="head">
-        <title>Caluculator App</title>
-        <link rel="stylesheet" href="index.css"/>  
+    <title></title>
+
 <body>
     <div class="container-root">
         <div class="container-calculator">
-            <div class="container-numbers" id="numbers">
-                <button class="number">7</button>
-                <button class="number">8</button>
-                <button class="number">9</button>
-                <button class="number">4</button>
-                <button class="number">5</button>
-                <button class="number">6</button>
-                <button class="number">1</button>
-                <button class="number">2</button>
-                <button class="number">3</button>
-                <button class="number">0</button>
-            </div>
-            <div class="container-operators">
-                <button class="operator" id="addition" value="+">+</button>
-                <button class="operator" id="subtraction" value="-">-</button>
-                <button class="operator" id="multiplication" value="x">*</button>
-                <button class="operator" id="division" value="/">/</button>
-                <button class="operator" id="equals" value="=">=</button>
-            </div>
-            
-            <div class="container-memory">
-                <button class="memory" id="memory-save">M+</button>
-                <button class="memory" id="memory-recall">MR</button>
-                <button class="memory" id="memory-clear">MC</button>
-            </div>
-            <input type="text" class="result" id="result" value="0" readonly></div>
-        </div>
+            <div class="result" id="result">0</div>
+    <div class="container-numbers" id="numbers">
+        <button class="number" id="one">1</button>
+        <button class="number" id="two">2</button>
+        <button class="number" id="three">3</button>
+        <button class="number" id="four">4</button>
+        <button class="number" id="five">5</button>
+        <button class="number" id="six">6</button>
+        <button class="number" id="seven">7</button>
+        <button class="number" id="eight">8</button>
+        <button class="number" id="nine">9</button>
+        <button class="number" id="zero">0</button>
+        <button class="number" id="decimal">.</button>
     </div>
-    </body>
-   <script src="app.js"></script>
+    <div class="container-operators" id="buttons">
+        <button class="operator" id="addition" value="+">+</input>
+        <button class="operator" id="subtraction" value="-">-</input>
+        <button class="operator" id="multiplication" value="*">*</input>
+        <button class="operator" id="division" value="/">/</input>
+        <button class="equals" id="equals">=</input>
+    </div>
 
+    <div class="container-memory" id="buttons">
+    <input type="button" class="memory" id="memory-clear" value="MC"></input>
+    <input type="button" class="memory" id="memory-add" value="M+"></input>
+    <input type="button" class="memory" id="memory-recall" value="MR"></input>
+    
+    </div>
+    
+    <hr>
+    <div id="test-one"></div>
+    <div id="test-two"></div>
+</div>
+</div>
+</body>
+<script src="app.js"></script>
 </html>
