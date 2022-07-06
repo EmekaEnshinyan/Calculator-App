@@ -106,8 +106,6 @@ function clear(){
   result.innerText = 0;
 }
 
-
-
 //perform operation based on math.operator value
 let operations = {
   '+': (valueOne, valueTwo) => Number(valueOne) + Number(valueTwo),
