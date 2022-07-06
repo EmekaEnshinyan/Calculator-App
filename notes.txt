@@ -1,4 +1,0 @@
-operator function where the function is called each time a button is pressed
-
-store number inputs
-
